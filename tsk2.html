@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Interaction</title>
+    <link rel="stylesheet" href="./glob.css">
+</head>
+<body>
+    <!-- on creer le div container content le butont et l'element ou le text va changer -->
+    <div class="container">
+        <div id="myText">Original Text</div>
+        <button id="changeTextButton">Change Text</button>
+    </div>
+    <!-- le script sui nous permet de changer le contenu du div -->
+    <script>
+        // on reccuper le button par son ID a l'aide de la méthode getElementById
+        const button = document.getElementById('changeTextButton');
+        // on mets le button sou ecoute avec l'event click
+        button.addEventListener('click', () => {
+            // on creer la constante textElement pour reccuperer le div 
+            const textElement = document.getElementById('myText');
+            // on clisuant sur le button on change le conetnu du text a Hello, Check!
+            textElement.textContent = "Hello, Check!";
+        });
+    </script>
+</body>
+</html>

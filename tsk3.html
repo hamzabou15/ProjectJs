@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./glob.css">
+    <title>Tsk 3</title>
+</head>
+
+<body>
+    <!-- on creer le div container content ou on affiche la liste  -->
+    <div class="listContainer">
+        <!-- on creer l'elemnt UL avec id todoList  -->
+        <ul id="todoList"></ul>
+    </div>
+
+    <script>
+        // on utlise la méthode fetch pour pourvoir reccuperer le data depuis l'URL
+        fetch('https://jsonplaceholder.typicode.com/todos')
+            // on fait une conversion de la reponse pour su'il soit au format JSON
+            .then(response => response.json())
+            .then(data => {
+                // on creer une constante todoLis sui fait reference au UL
+                const todoList = document.getElementById('todoList');
+                // on reccupere le data on utlise la méthode slice pour
+                // recuperer juste les 5 premiers données
+                // et pour chasue element il sera contribuer a LI 
+                data.slice(0, 5).forEach(todo => {
+                    const listItem = document.createElement('li');
+                    // par la suite pour chasue LI on va lui donner comme text le titre 
+                    listItem.textContent = todo.title;
+                    // Ajoute l'élément LI à la fin de la liste <ul>
+                    todoList.appendChild(listItem);
+                });
+            })
+            // on catch les erreurs si on recontres des probs avec le serveur pour recuperer les données
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+
+</html>

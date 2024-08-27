@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    La Permiere tache
+</body>
+
+</html>
+<script>
+    // on creer La fonction getEvenNumbers prend un tableau comme parameter
+    function getEvenNumbers(array) {
+        // on utulise la methode filter de JS sui va nous permetre de filter juste les nombre
+        // pair de ce tableau avec l'aide de l'operateur % moduleu si le reste == 0 c'est un nombre paire sinon impaire et il sera filtré automatiquement
+        return array.filter(num => num % 2 === 0);
+    }
+    // on creer un tableau 
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // On crée une constante `evenNumbers` qui contiendra le tableau `numbers` filtré pour ne garder que les nombres pairs.
+    const evenNumbers = getEvenNumbers(numbers);
+    console.log(evenNumbers); 
+</script>
